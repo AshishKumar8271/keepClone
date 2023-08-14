@@ -1,7 +1,12 @@
 
-//gloable Array:-
+//gloable Array for storing notes data like id,inputValue,titleValue:-
 let globArr=[];
+
+
+//function to add the note container:-
 const Add_div_Note=(Noteid,NoteTitle,NoteValue)=>{
+
+
     let id;
     if(Noteid){
         id= Noteid;
@@ -9,11 +14,16 @@ const Add_div_Note=(Noteid,NoteTitle,NoteValue)=>{
     else{
         id =new Date().getTime().toString();
     }
+
+    
     //creating the nodes of keeps :-
     const note=document.createElement('div');
     note.classList.add('Note-class');
+    const attr=document.createAttribute('data-id');
+    attr.value=id;
+    note.setAttributeNode(attr);
     const htmldata=`
-    <div class="btn-container" ${key ={id}}>
+    <div class="btn-container">
             <i class="fa-solid fa-pen-to-square" id="editNote"></i>
             <i class="fa-solid fa-trash" id="deleteNote"></i>
         </div>
@@ -145,8 +155,8 @@ console.log(notesData);
 
 if(notesData){
     notesData.forEach((note) => {
-      return  Add_div_Note(note.id,note.titleValue,note.inputValue
-        );
+        const {id,titleValue,inputValue} = note;
+      return  Add_div_Note(id,titleValue,inputValue);
     });
 }
 
