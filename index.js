@@ -76,7 +76,7 @@ const Add_div_Note=(Noteid,NoteTitle,NoteValue)=>{
         
         heading.innerHTML = NoteTitle;
         para.innerHTML = NoteValue;
-        title.value=NoteValue;
+        title.value=NoteTitle;
         textareas.value=NoteValue;
 
         const keepData={
